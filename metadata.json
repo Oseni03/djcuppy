@@ -1,0 +1,8 @@
+{
+  "name": "DJ Cuppy Global - 2026 Entertainment Portal",
+  "description": "A high-end, visual-heavy entertainment and event booking platform for DJ Cuppy, featuring smart booking flows and immersive media showcases.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
