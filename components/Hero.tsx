@@ -3,6 +3,22 @@ import { motion } from "framer-motion";
 import { Play, Calendar, Music } from "lucide-react";
 
 const Hero: React.FC = () => {
+	const handleNavClick = (
+		e: React.MouseEvent<HTMLAnchorElement>,
+		href: string,
+	) => {
+		e.preventDefault();
+		const targetId = href.replace("#", "");
+		const element = document.getElementById(targetId);
+		if (element) {
+			const offset = 100;
+			const elementPosition = element.getBoundingClientRect().top;
+			const offsetPosition =
+				elementPosition + window.pageYOffset - offset;
+			window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+		}
+	};
+
 	return (
 		<section
 			id="home"
@@ -46,12 +62,14 @@ const Hero: React.FC = () => {
 				>
 					<a
 						href="#booking"
+						onClick={(e) => handleNavClick(e, "#booking")}
 						className="w-full md:w-auto px-10 py-5 bg-pink-600 hover:bg-pink-500 text-white font-bold rounded-full transition-all flex items-center justify-center gap-2 tracking-widest shadow-[0_0_20px_rgba(255,0,255,0.4)]"
 					>
 						BOOK DJ CUPPY
 					</a>
 					<a
 						href="#media"
+						onClick={(e) => handleNavClick(e, "#media")}
 						className="w-full md:w-auto px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-full border border-white/20 transition-all flex items-center justify-center gap-2 tracking-widest"
 					>
 						LISTEN TO MIXES <Play size={18} fill="white" />
